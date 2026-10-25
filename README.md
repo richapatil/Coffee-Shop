@@ -1,8 +1,10 @@
-# Coffee Shop WordPress Site
+# Coffee Shop Ordering Website
 
-A simple coffee shop website built with WordPress. Customers can view the menu, place an order and check their order status. Staff log in to manage products and update orders.
+A WordPress website that helps a coffee shop take orders online, manage its menu and stock, and update order status.
 
-[Try it in your browser](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/richapatil/Coffee-Shop/main/blueprint.json)
+**Live demo:** [Try it in your browser](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/richapatil/Coffee-Shop/main/blueprint.json) (no install needed)
+
+**Tech:** PHP, WordPress, MariaDB, Docker, HTML/CSS
 
 ## What's inside
 
@@ -13,11 +15,12 @@ Built with WordPress custom post types, shortcodes and hooks.
 
 ## Features
 
-- Menu with prices, grouped by category
-- Order form with validation
-- Stock goes down with each order, and items show "Sold out" at 0
-- Order status board with Preparing and Ready for Pickup
-- Staff can mark orders Ready or Completed
+- Online order form with validation
+- Stock updates on every order, and items show "Sold out" at 0 so nothing is oversold
+- 3-stage order workflow: Pending, Ready, Completed
+- Staff update an order's status in one click
+- Customers get an order number and follow it on a public status board, no account needed
+- Menu grouped by category and managed from wp-admin
 
 ## Run locally
 
