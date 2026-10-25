@@ -1,0 +1,51 @@
+/* Staff login page, styled to match the coffee shop website. */
+
+body.login {
+	background: #f7f1e8;
+	font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body.login h1 a {
+	width: auto;
+	height: auto;
+	margin-bottom: 1.5rem;
+	background: none;
+	color: #2b1a12;
+	font-family: "Playfair Display", Georgia, serif;
+	font-size: 2rem;
+	font-weight: 700;
+	line-height: 1.2;
+	text-indent: 0;
+	overflow: visible;
+}
+
+body.login form {
+	border: 0;
+	border-radius: 14px;
+	box-shadow: 0 10px 30px rgba(43, 26, 18, 0.08);
+}
+
+body.login input[type="text"]:focus,
+body.login input[type="password"]:focus {
+	border-color: #c8915a;
+	box-shadow: 0 0 0 1px #c8915a;
+}
+
+body.login .button-primary {
+	background: #c8915a;
+	border-color: #c8915a;
+	color: #2b1a12;
+	font-weight: 600;
+}
+
+body.login .button-primary:hover,
+body.login .button-primary:focus {
+	background: #d9a46e;
+	border-color: #d9a46e;
+	color: #2b1a12;
+}
+
+body.login #nav a,
+body.login #backtoblog a {
+	color: #6f4e37;
+}

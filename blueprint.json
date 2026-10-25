@@ -1,0 +1,39 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"landingPage": "/",
+	"login": true,
+	"steps": [
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "git:directory",
+				"url": "https://github.com/richapatil/Coffee-Shop",
+				"ref": "main",
+				"refType": "branch",
+				"path": "coffee-shop"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "installTheme",
+			"themeData": {
+				"resource": "git:directory",
+				"url": "https://github.com/richapatil/Coffee-Shop",
+				"ref": "main",
+				"refType": "branch",
+				"path": "coffee-shop-theme"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "setSiteOptions",
+			"options": {
+				"blogname": "Coffee Shop"
+			}
+		}
+	]
+}

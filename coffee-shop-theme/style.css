@@ -1,0 +1,451 @@
+/*
+Theme Name:  Coffee Shop Theme
+Description: A one-page coffee shop website. Shows the menu and order form from the Coffee Shop plugin.
+Version:     1.0.0
+Author:      Richa Patil
+License:     GPL-2.0-or-later
+Text Domain: coffee-shop-theme
+*/
+
+/* ---------- Colors and fonts used everywhere ---------- */
+:root {
+	--espresso: #2b1a12;
+	--coffee: #6f4e37;
+	--caramel: #c8915a;
+	--cream: #f7f1e8;
+	--milk: #fffaf4;
+	--muted: #7a6658;
+	--line: #e6d9cb;
+	--radius: 14px;
+	--heading-font: "Playfair Display", Georgia, serif;
+	--body-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 90px; /* So the sticky header does not cover a section after clicking a menu link. */
+}
+
+body {
+	margin: 0;
+	font-family: var(--body-font);
+	color: var(--espresso);
+	background: var(--milk);
+	line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--heading-font);
+	line-height: 1.2;
+}
+
+a {
+	color: var(--coffee);
+}
+
+.container {
+	width: 100%;
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0 1.25rem;
+}
+
+.container-narrow {
+	max-width: 760px;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	background: rgba(255, 250, 244, 0.95);
+	border-bottom: 1px solid var(--line);
+}
+
+.header-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 70px;
+}
+
+.logo {
+	font-family: var(--heading-font);
+	font-size: 1.45rem;
+	font-weight: 700;
+	color: var(--espresso);
+	text-decoration: none;
+}
+
+.site-nav {
+	display: flex;
+	gap: 1.75rem;
+}
+
+.site-nav a {
+	color: var(--espresso);
+	font-weight: 500;
+	text-decoration: none;
+}
+
+.site-nav a:hover {
+	color: var(--caramel);
+}
+
+/* ---------- Hero banner ---------- */
+.hero {
+	background: radial-gradient(circle at 80% 20%, #5e3d29 0%, var(--espresso) 65%);
+	color: #fff;
+	padding: 7rem 0 6rem;
+}
+
+.eyebrow {
+	margin: 0 0 1rem;
+	color: var(--caramel);
+	font-size: 0.8rem;
+	font-weight: 600;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+}
+
+.hero h1 {
+	margin: 0 0 1.25rem;
+	font-size: clamp(2.6rem, 6vw, 4.25rem);
+}
+
+.hero-text {
+	max-width: 520px;
+	margin: 0 0 2rem;
+	color: #e9dccf;
+	font-size: 1.1rem;
+}
+
+.hero-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+/* ---------- Buttons (also used for the plugin's Place Order button) ---------- */
+.button,
+.coffee-order-form button {
+	display: inline-block;
+	padding: 0.85rem 1.75rem;
+	border: 2px solid var(--caramel);
+	border-radius: 999px;
+	background: var(--caramel);
+	color: var(--espresso);
+	font-family: var(--body-font);
+	font-size: 1rem;
+	font-weight: 600;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.button:hover,
+.coffee-order-form button:hover {
+	background: #d9a46e;
+	border-color: #d9a46e;
+}
+
+.button-outline {
+	background: transparent;
+	border-color: rgba(255, 255, 255, 0.6);
+	color: #fff;
+}
+
+.button-outline:hover {
+	background: rgba(255, 255, 255, 0.1);
+	border-color: #fff;
+}
+
+/* ---------- Page sections ---------- */
+.section {
+	padding: 5rem 0;
+}
+
+.section-cream {
+	background: var(--cream);
+}
+
+.section-dark {
+	background: var(--espresso);
+	color: #f3e9de;
+}
+
+.section-title {
+	margin: 0 0 0.75rem;
+	font-size: clamp(2rem, 4vw, 2.75rem);
+	text-align: center;
+}
+
+.section-text {
+	max-width: 560px;
+	margin: 0 auto 2.5rem;
+	color: var(--muted);
+	text-align: center;
+}
+
+.plugin-missing {
+	text-align: center;
+	color: var(--muted);
+}
+
+/* ---------- Menu (the HTML comes from the plugin's [coffee_menu]) ---------- */
+.coffee-menu-category {
+	padding: 1.75rem;
+	border-radius: var(--radius);
+	background: #fff;
+	box-shadow: 0 6px 20px rgba(43, 26, 18, 0.06);
+}
+
+.coffee-menu-category h3 {
+	margin: 0 0 0.75rem;
+	padding: 0;
+	border: 0;
+	color: var(--coffee);
+	font-size: 1.35rem;
+}
+
+.coffee-menu-category li {
+	padding: 0.65rem 0;
+	border-bottom: 1px dashed var(--line);
+}
+
+.coffee-menu-category li:last-child {
+	border-bottom: 0;
+}
+
+.coffee-menu-price {
+	color: var(--coffee);
+	font-weight: 600;
+}
+
+/* ---------- Order form (the HTML comes from the plugin's [coffee_order_form]) ---------- */
+.card {
+	padding: 2rem;
+	border-radius: var(--radius);
+	background: #fff;
+	box-shadow: 0 10px 30px rgba(43, 26, 18, 0.08);
+}
+
+.coffee-order-form {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1.1rem 1.25rem;
+}
+
+.coffee-order-form p {
+	margin: 0;
+}
+
+.coffee-order-form p:last-child {
+	grid-column: 1 / -1; /* The button row spans both columns. */
+}
+
+.coffee-order-form label {
+	color: var(--muted);
+	font-size: 0.9rem;
+	font-weight: 500;
+}
+
+.coffee-order-form input,
+.coffee-order-form select {
+	padding: 0.7rem 0.8rem;
+	border: 1px solid var(--line);
+	border-radius: 10px;
+	background: var(--milk);
+	font: inherit;
+}
+
+.coffee-order-form input:focus,
+.coffee-order-form select:focus {
+	outline: 2px solid var(--caramel);
+	border-color: transparent;
+}
+
+.coffee-order-form button {
+	width: 100%;
+}
+
+.coffee-notice {
+	margin: 0 0 1.25rem;
+	border-radius: 10px;
+}
+
+/* ---------- Order status board (the HTML comes from the plugin's [coffee_order_status]) ---------- */
+.coffee-status-column {
+	padding: 1.75rem;
+	border-radius: var(--radius);
+	background: #fff;
+	box-shadow: 0 6px 20px rgba(43, 26, 18, 0.06);
+}
+
+.coffee-status-column h3 {
+	margin: 0 0 1rem;
+	color: var(--coffee);
+	font-size: 1.35rem;
+}
+
+.coffee-status-column p {
+	margin: 0;
+	color: var(--muted);
+}
+
+.coffee-status li {
+	padding: 0.45rem 1rem;
+	background: var(--cream);
+	color: var(--espresso);
+	font-size: 1.1rem;
+}
+
+.coffee-status-ready h3 {
+	color: #2e7d32;
+}
+
+.coffee-status-ready li {
+	background: #2e7d32;
+	color: #fff;
+}
+
+/* Staff view of the board: rows with the customer, product and a button. */
+.coffee-status-staff li,
+.coffee-status-staff .coffee-status-ready li {
+	padding: 0.6rem 0.75rem 0.6rem 1rem;
+	background: var(--cream);
+	color: var(--espresso);
+	font-size: 0.95rem;
+}
+
+.coffee-status-staff button {
+	font-family: var(--body-font);
+	font-weight: 600;
+}
+
+.coffee-menu-sold-out .coffee-menu-price {
+	color: var(--muted);
+	font-weight: 500;
+}
+
+/* ---------- About ---------- */
+.features {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 1.5rem;
+	margin-top: 2.5rem;
+}
+
+.feature {
+	padding: 1.5rem;
+	text-align: center;
+}
+
+.feature-icon {
+	font-size: 2.25rem;
+}
+
+.feature h3 {
+	margin: 0.75rem 0 0.5rem;
+	font-size: 1.3rem;
+}
+
+.feature p {
+	margin: 0;
+	color: var(--muted);
+}
+
+/* ---------- Visit ---------- */
+.visit {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 3rem;
+}
+
+.visit h2 {
+	margin: 0 0 1rem;
+	color: #fff;
+	font-size: 2.5rem;
+}
+
+.visit h3 {
+	margin: 0 0 1rem;
+	color: var(--caramel);
+	font-size: 1.35rem;
+}
+
+.hours {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.hours li {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.6rem 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+	background: #1d110b;
+	color: #bfae9f;
+	font-size: 0.9rem;
+}
+
+.footer-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-top: 1.5rem;
+	padding-bottom: 1.5rem;
+}
+
+.site-footer p {
+	margin: 0;
+}
+
+.site-footer a {
+	color: #bfae9f;
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 640px) {
+	.header-inner {
+		flex-direction: column;
+		gap: 0.4rem;
+		height: auto;
+		padding-top: 0.75rem;
+		padding-bottom: 0.75rem;
+	}
+
+	.site-nav {
+		gap: 1.25rem;
+	}
+
+	.hero {
+		padding: 4.5rem 0 4rem;
+	}
+
+	.section {
+		padding: 3.5rem 0;
+	}
+
+	.coffee-order-form,
+	.visit {
+		grid-template-columns: 1fr;
+	}
+
+	.footer-inner {
+		flex-direction: column;
+		gap: 0.5rem;
+		text-align: center;
+	}
+}

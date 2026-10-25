@@ -1,0 +1,134 @@
+/* Coffee Shop plugin styles. Kept small so the active theme does most of the styling. */
+
+.coffee-menu {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 1.5rem;
+	margin-bottom: 2rem;
+}
+
+.coffee-menu-category h3 {
+	margin: 0 0 0.5rem;
+	padding-bottom: 0.4rem;
+	border-bottom: 2px solid #6f4e37;
+}
+
+.coffee-menu-category ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.coffee-menu-category li {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 0.5rem 0;
+	border-bottom: 1px dashed #e2d6cc;
+}
+
+.coffee-menu-sold-out {
+	opacity: 0.5;
+}
+
+.coffee-order-form label {
+	display: block;
+	font-weight: 600;
+	margin-bottom: 0.25rem;
+}
+
+.coffee-order-form input,
+.coffee-order-form select {
+	width: 100%;
+	padding: 0.5rem;
+	box-sizing: border-box;
+}
+
+.coffee-order-form button {
+	background: #6f4e37;
+	color: #fff;
+	border: 0;
+	padding: 0.7rem 1.4rem;
+	cursor: pointer;
+}
+
+.coffee-status {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 1.5rem;
+}
+
+.coffee-status ul {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.coffee-status li {
+	padding: 0.4rem 0.9rem;
+	border-radius: 999px;
+	background: #f1e7dc;
+	font-weight: 600;
+}
+
+.coffee-status-ready li {
+	background: #2e7d32;
+	color: #fff;
+}
+
+/* Staff view: one row per order with details and a button. */
+.coffee-status-staff ul {
+	display: block;
+}
+
+.coffee-status-staff li,
+.coffee-status-staff .coffee-status-ready li {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	margin-bottom: 0.5rem;
+	border-radius: 10px;
+	background: #f1e7dc;
+	color: inherit;
+}
+
+.coffee-status-details {
+	flex: 1;
+	font-weight: 400;
+}
+
+.coffee-status-staff form {
+	margin: 0;
+}
+
+.coffee-status-staff button {
+	padding: 0.35rem 0.8rem;
+	border: 0;
+	border-radius: 999px;
+	background: #6f4e37;
+	color: #fff;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+.coffee-status-staff .coffee-status-ready button {
+	background: #2e7d32;
+}
+
+.coffee-notice {
+	padding: 0.8rem 1rem;
+	border-left: 4px solid;
+}
+
+.coffee-notice-success {
+	background: #edf7ed;
+	border-color: #2e7d32;
+}
+
+.coffee-notice-error {
+	background: #fdecea;
+	border-color: #c62828;
+}
